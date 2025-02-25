@@ -11,6 +11,8 @@
     --color-button-hover: #e55720;
     --color-text: #444444;
     --color-white: #FFFFFF;
+
+    font-size: 10px;
 }
 
 /* Estilos generales */
@@ -137,6 +139,15 @@ ul {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     margin: 20px 0;
+
+    font-size: 2.4rem;
+    min-width: 25%;
+    max-width: 60%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    word-wrap: normal;
+    flex-wrap: wrap;
 }
 
 .result-list {
