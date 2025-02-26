@@ -2,10 +2,16 @@
 
 let friends = [];
 const LISTA_AMIGOS = "listaAmigos";
+const INPUT_FIELD = "amigo";
 
 async function getInputValue(input_id){
     let input_value = await document.getElementById(input_id).value;
     return await checkInputValue(input_value);
+}
+
+function clearInputField(){
+    let field = document.getElementById(INPUT_FIELD);
+    field.value = "";
 }
 
 
@@ -35,6 +41,8 @@ async function agregarAmigo(input_id){
         friends.push(friend);
     }
     displayFriends(friend);
+
+    clearInputField();
 }
 
 
@@ -42,9 +50,24 @@ async function agregarAmigo(input_id){
 
 function displayFriends(friend){
     const friendsList = document.getElementById(LISTA_AMIGOS);
-    //for (let friend of friends){
+    friendsList.innerHTML = "";
+    for (let friend of friends){
         let node = document.createElement("li");
         node.innerHTML = `${friend}`;
         friendsList.appendChild(node);
-    //}
+    }
+}
+
+function sortearAmigo(){
+    const MIN = 0;
+    const MAX = friends.length;
+
+    let friendIndex = Math.floor((Math.random() * (MAX - MIN) + MIN));
+    console.log(`Numero sorteado: ${friendIndex}`);
+
+    /* TO-DO: display results
+
+    // update 'results' field
+
+    */
 }
