@@ -3,6 +3,7 @@
 let friends = [];
 const LISTA_AMIGOS = "listaAmigos";
 const INPUT_FIELD = "amigo";
+const RESULT_ELEMENT = "resultado";
 
 async function getInputValue(input_id){
     let input_value = await document.getElementById(input_id).value;
@@ -46,11 +47,20 @@ async function agregarAmigo(input_id){
 }
 
 
+async function getFriendsHTMLList() {
+    const friendsList = await document.getElementById(LISTA_AMIGOS);
+    return friendsList;
+}
 
-
-function displayFriends(friend){
-    const friendsList = document.getElementById(LISTA_AMIGOS);
+ async function clearFriendsHTMLList() {
+    let friendsList = await getFriendsHTMLList();
     friendsList.innerHTML = "";
+}
+
+async function displayFriends(friend){
+    clearFriendsHTMLList();
+    let friendsList = await getFriendsHTMLList();
+    console.log(`FriendsList: ${friendsList}`);
     for (let friend of friends){
         let node = document.createElement("li");
         node.innerHTML = `${friend}`;
@@ -62,12 +72,22 @@ function sortearAmigo(){
     const MIN = 0;
     const MAX = friends.length;
 
+    if(friends === null || friends.length < 1 || !Array.isArray(friends)){
+        alert("Agrega algunos amigos a la lista!");
+        return;
+    }
+
     let friendIndex = Math.floor((Math.random() * (MAX - MIN) + MIN));
-    console.log(`Numero sorteado: ${friendIndex}`);
 
-    /* TO-DO: display results
+      displayResult(`El amigo sorteado es: ${friends[friendIndex]}`);
+      
+      clearFriendsHTMLList();
+}
 
-    // update 'results' field
+function displayResult(winText){
+    const resultElement = document.getElementById(RESULT_ELEMENT);
 
-    */
+    let resultItem = document.createElement("li");
+    resultItem.innerHTML = winText;
+    resultElement.appendChild(resultItem);
 }
