@@ -20,7 +20,6 @@ function clearInputField(){
 async function checkInputValue(value){
     let lowerCaseValue = value.toLowerCase(value);
 
-
     if( (lowerCaseValue.length < 3) || (lowerCaseValue.match(/^\s+$/i))){
         alert(`El nombre ingresado debe contener al menos 3 carácteres. \nNombre ingresado: ${value}.`);
         return Promise.reject("Not enough characters.");
@@ -60,7 +59,6 @@ async function getFriendsHTMLList() {
 async function displayFriends(friend){
     clearFriendsHTMLList();
     let friendsList = await getFriendsHTMLList();
-    console.log(`FriendsList: ${friendsList}`);
     for (let friend of friends){
         let node = document.createElement("li");
         node.innerHTML = `${friend}`;
