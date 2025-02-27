@@ -12,7 +12,7 @@ Este es un proyecto web que permite realizar un sorteo de Amigo Secreto de maner
 
 ### Opcion 1: Usar en Línea
 
-Puedes acceder a la versión en vivo del proyecto en el siguiente enlace: [Demo en vivo](#) _(Reemplaza con el enlace real si está disponible)_.
+Puedes acceder a la versión en vivo del proyecto en el siguiente enlace: [Demo en vivo](https://visconttig.github.io/challenge_001/).
 
 ### Opción 2: Ejecutar Localmente
 
