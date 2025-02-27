@@ -20,16 +20,16 @@ function clearInputField(){
 async function checkInputValue(value){
     let lowerCaseValue = value.toLowerCase(value);
 
-    if((lowerCaseValue.length < 3) || lowerCaseValue.match(/^\s+$/i)){
+
+    if( (lowerCaseValue.length < 3) || (lowerCaseValue.match(/^\s+$/i))){
         alert(`El nombre ingresado debe contener al menos 3 carácteres. \nNombre ingresado: ${value}.`);
         return Promise.reject("Not enough characters.");
     } else if(lowerCaseValue.length >= 24){
         alert(`El nombre ingresado debe contener menos de 24 carácteres.`);
         return Promise.reject("Too much characters.");     
-        /* TO-DO: Correct case-sensitive matching */
-    } else if(friends.includes(value)) {
+    } else if (friends.some((fr) => fr.toLowerCase() === value.toLowerCase() )) {
         alert(`El nombre ingresado ya existe: ${value}`);
-        return Promise.reject("Name already exists.");
+        return Promise.reject(`Name already exists`);
     } else {
         return value;
     }
